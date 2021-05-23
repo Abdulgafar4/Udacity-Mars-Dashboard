@@ -1,0 +1,117 @@
+/* -------------------  MOBILE  --------------------- */
+@import './resets.css';
+
+body {
+  display: grid;
+  flex-direction: column;
+  font-family: Arial;
+  min-height: 100vh;
+}
+
+header {
+  /* header styles */
+  text-align: center;
+  background-color: rgb(0, 0, 0);
+  font-weight: bold;
+  padding: 1em;
+  color: white;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+}
+
+.tab-container{
+  margin-top: 70px;
+  display: flex;
+  background: #fff;
+  justify-content: space-around;
+  text-align: center;
+  position: sticky;
+}
+
+.tab{
+  padding: 1em;
+  margin-bottom: 0;
+  width: 100%;
+  font-weight: bold;
+  font-size: 0.8em;
+}
+
+.tab.active {
+  background: rgb(253, 252, 251); 
+  border-bottom: 6px solid rgb(0, 31, 6);
+}
+
+
+.tab:hover {
+  cursor: pointer;
+}
+
+
+
+main {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px 0;
+}
+
+.rover-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 2em 1em;
+}
+
+.rover-container figure {
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  margin: auto;
+}
+
+.rover {
+  padding: 1em;
+}
+
+strong {
+font-size: 1.5em;
+color: rgb(0, 31, 6);
+}
+
+.apod-container{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+.main-rover-img{
+  width: 90%;
+  height: auto;
+  border-radius: 100%;
+}
+
+.apod-card{
+  width: 90%;
+  max-width: 500px;
+  padding: 1em;
+  border-radius: 6px;
+  margin: 1em auto;
+}
+
+.rover-apod {
+  width: 90%;
+  height: auto;
+}
+
+/* -------------------  TABLET and Desktop --------------------- */
+@media (min-width: 768px) {
+  /* use mobile */
+  .tab{
+    font-size: 1.2em;
+  }
+
+  .rover-container {
+    flex-wrap: nowrap;
+  }
+
+}
