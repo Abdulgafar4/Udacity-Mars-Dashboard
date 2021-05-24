@@ -1,8 +1,8 @@
-let store = {
-  currentTab: "spirit",
+let store = Immutable.Map({
+  currentTab: Immutable.Map({ cTab: "spirit" }),
   rover: {},
   apod: [],
-};
+});
 
 // add our markup to the page
 const root = document.getElementById("root");
@@ -21,17 +21,17 @@ const activeTab = (tabs, currentTab) => {
 const initial = async (tabs, store) => {
   tabs.forEach((tab) => {
     tab.addEventListener("click", async (e) => {
-      const currentTab = e.target.id;
-      updateStore(store, { currentTab: currentTab });
-      activeTab(tabs, currentTab);
-      fetchData(store, currentTab);
+      const cTab = e.target.id;
+      updateStore(store, { cTab: cTab });
+      activeTab(tabs, cTab);
+      fetchData(store, cTab);
     });
   });
 };
 
-const fetchData = async (store, currentTab) => {
-  getRover(store, currentTab);
-  getApod(store, currentTab);
+const fetchData = async (store, cTab) => {
+  getRover(store, cTab);
+  getApod(store, cTab);
 };
 
 const updateStore = (store, newState) => {
@@ -104,8 +104,7 @@ const renderApod = (apods) => {
 };
 
 // ----------------------------------------------  API CALLS
-//set is an immutable js
-
+// set is an immutable js
 const getRover = (store, roverName) => {
   fetch(`http://localhost:3000/rovers`, {
     method: "POST",
