@@ -114,7 +114,14 @@ const getRover = (store, roverName) => {
     body: JSON.stringify({ roverName: roverName }),
   })
     .then((res) => res.json())
-    .then((rover) => updateStore(store, { rover: rover }));
+    .then(({ rover }) => updateStore(store, 
+      {
+          rover: set(store.rover, roverName, {
+              ...store.rover[roverName],
+              ...rover
+          })
+      },
+  ))
 };
 
 const getApod = (store, roverName) => {
