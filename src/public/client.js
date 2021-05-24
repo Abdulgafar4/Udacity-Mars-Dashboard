@@ -104,6 +104,7 @@ const renderApod = (apods) => {
 };
 
 // ----------------------------------------------  API CALLS
+//set is an immutable js
 
 const getRover = (store, roverName) => {
   fetch(`http://localhost:3000/rovers`, {
